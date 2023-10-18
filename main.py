@@ -3,7 +3,7 @@ import requests
 
 def weather_by_location(location: str):
     url = f"https://wttr.in/{location}"
-    payload = {"1": "", "n": "", "T": "", "q": "", "M": "", "F": "", "lang": "ru"}
+    payload = {"n": "", "T": "", "q": "", "M": "", "F": "", "lang": "ru"}
     return requests.get(url, params=payload).text
 
 
