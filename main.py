@@ -8,9 +8,9 @@ def weather_by_location(location: str):
 
 
 def main():
-    print(weather_by_location("svo"))
-    print(weather_by_location("Череповец"))
-    print(weather_by_location("London"))
+    locations = ["svo", "Череповец", "London"]
+    for location in locations:
+        print(weather_by_location(location))
 
 
 if __name__ == "__main__":
