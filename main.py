@@ -1,10 +1,17 @@
 import requests
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def weather_by_location(location: str):
     url = f"https://wttr.in/{location}"
     payload = {"nTqMF": "", "lang": "ru"}
-    return requests.get(url, params=payload).text
+    response = requests.get(url, params=payload)
+    response.raise_for_status()
+    if "error" in response.text:
+        raise requests.exceptions.HTTPError(response.json["error"])
+    return response.text
 
 
 def main():
